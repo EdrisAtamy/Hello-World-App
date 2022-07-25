@@ -1,15 +1,27 @@
 doctype html
-html(lang="en-US")
+
+html(lang=language)
   head
-    title My App
+    block page_title
+      title This is the page title
     meta(charset="UTF-8")
+    link(rel="stylesheet" href="/stylesheets/application.css")
+
   body
+    nav
+      ul
+      each country in countries
+        li
+          a(href=country.path
+            class=currentPathClass(country.path, currentPath)
+          )
+            img.flag(src=`/images/${country.flag}`
+                     alt=country.alt
+                     title=country.title)
+
     header
-      block my_header
-        p This is My Header
+      block greeting
+        h1 Hello World!
+
     main
-      block my_content
-        p This page intentionally left blank.
-    footer
-      block my_footer
-        p Copyright Launch School &copyr; 2019
+      block software_engineer
